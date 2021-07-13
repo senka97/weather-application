@@ -1,0 +1,37 @@
+<div class="container mt-5 pt-5 ms-auto me-auto">
+  <div class="card shadow-lg mt-lg-5 mb-auto">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3">
+          <select class="form-select" >
+            <option selected>RS</option>
+          </select>
+        </div>
+        <div class="col-9">
+          <div class="input-group">
+            <input type="text" class="form-control col-8" placeholder="Please enter your location..." (keyup)="search($event)" aria-describedby="search-span"  >
+            <span class="input-group-text" id="search-span">  <mat-icon svgIcon="search" aria-hidden="false"></mat-icon></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showTemperatures" class="container mt-5 ms-auto me-auto">
+  <div class="text-center">
+    {{forecastDate}} <br/>
+    <h1 id="avgTemp" class="display-1 text-white"> <b>{{averageTemperature}} &#8451; </b>  </h1>
+  </div>
+  <table class="table table-borderless">
+    <tbody>
+      <tr>  
+        <td *ngFor="let temp of temperatures" class='text-center'>
+           {{temp.day}} <br/>
+          <h3 class="text-white"><b> {{temp.averageTemp}} </b> &#8451; </h3>
+        </td> 
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
